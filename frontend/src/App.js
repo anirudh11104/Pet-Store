@@ -14,16 +14,21 @@ import Random from "./Random";
 
 
 function Layout() {
+    const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
-    const [showRandom, setShowRandom] = useState(true); 
+    const [showRandom, setShowRandom] = useState(true);
 
     // Handle Logout
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remove token
         setIsAuthenticated(false); // Update state
         navigate("/Login"); // Redirect to login
+    };
+
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value.toLowerCase());
     };
 
     // Update auth state when token changes
@@ -50,7 +55,7 @@ function Layout() {
         setShowRandom(false); // Hide Random component
         navigate(categoryPath); // Navigate to selected category
     };
-    
+
 
     return (
         <div>
@@ -68,11 +73,17 @@ function Layout() {
 
             {!hideSearchAndCategories && (
                 <div>
-                    <input type="search" placeholder="Search .." />
+                    <input
+                        type="search"
+                        placeholder="Search .."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                    />
+
                     <div className="dropdown">
                         <button className="dropbtn">Categories</button>
                         <div className="dropdown-content">
-                        <a href="/Cat" onClick={(e) => handleCategoryClick(e, "/Cat")}>Cats</a>
+                            <a href="/Cat" onClick={(e) => handleCategoryClick(e, "/Cat")}>Cats</a>
                             <a href="/Rabbit" onClick={(e) => handleCategoryClick(e, "/Rabbit")}>Rabbits</a>
                             <a href="/Guinea" onClick={(e) => handleCategoryClick(e, "/Guinea")}>Guinea pigs</a>
                             <a href="/Chinchilla" onClick={(e) => handleCategoryClick(e, "/Chinchilla")}>Chinchillas</a>
@@ -83,14 +94,14 @@ function Layout() {
             )}
 
             {showRandom && <Random />}
-            
+
 
             <Routes>
                 <Route path="/Sign" element={<Sign />} />
                 <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/Cart" element={isAuthenticated ? <Cart /> : <Login />} />
-                <Route path="/Cat" element={<Cat />} />
+                <Route path="/Cat" element={<Cat searchQuery={searchQuery} />} />
                 <Route path="/Rabbit" element={<Rabbit />} />
                 <Route path="/Guinea" element={<Guinea />} />
                 <Route path="/Chinchilla" element={<Chinchilla />} />
