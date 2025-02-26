@@ -69,3 +69,11 @@ div.desc {
   padding: 5px;
   text-align: center;
 }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}

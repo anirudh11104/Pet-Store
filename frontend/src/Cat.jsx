@@ -24,9 +24,9 @@ export const catData = [
     { id: 10, name: "British Long Hair Cat", price: 20, image: cat10 },
 ];
 
-export default function Cat() {
+export default function Cat({ addToCart }) {
     const [userInput, setUserInput] = useState("");
-    
+
     // State for storing cat quantities
     const [catCounts, setCatCounts] = useState(
         catData.reduce((acc, cat) => {
@@ -94,8 +94,16 @@ export default function Cat() {
                                     </span>
                                 </div>
                                 <div className="desc">
-                                    <button>Add to cart</button>
+                                    {catCounts[cat.id].male !== 0 || catCounts[cat.id].female !== 0 ? (
+                                        <button onClick={() => addToCart(cat, catCounts[cat.id].male, catCounts[cat.id].female)}>
+                                            Add to cart
+                                        </button>
+                                    ) : (
+                                        <div style={{ height: "30px" }}></div> // Keeps space to avoid layout shift
+                                    )}
                                 </div>
+
+
                             </div>
                         );
                     })
