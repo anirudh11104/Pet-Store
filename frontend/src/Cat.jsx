@@ -11,22 +11,23 @@ import cat9 from "./Images/Cats/cat9.jpeg";
 import cat10 from "./Images/Cats/cat10.jpg";
 import "./App.css";
 
-export default function Cat({ searchQuery }) {
-    // Array of cat objects
-    const catData = [
-        { id: 1, name: "Ginger Cat", price: 10, image: cat1 },
-        { id: 2, name: "Persian Cat", price: 20, image: cat2 },
-        { id: 3, name: "Ragdoll Cat", price: 20, image: cat3 },
-        { id: 4, name: "Himalayan Cat", price: 20, image: cat4 },
-        { id: 5, name: "American Bob Cat", price: 20, image: cat5 },
-        { id: 6, name: "Bombay Cat", price: 20, image: cat6 },
-        { id: 7, name: "Siberian Cat", price: 20, image: cat7 },
-        { id: 8, name: "Australian Mist Cat", price: 20, image: cat8 },
-        { id: 9, name: "Burmilla Cat", price: 20, image: cat9 },
-        { id: 10, name: "British Long Hair Cat", price: 20, image: cat10 },
-    ];
+export const catData = [
+    { id: 1, name: "Ginger Cat", price: 10, image: cat1 },
+    { id: 2, name: "Persian Cat", price: 20, image: cat2 },
+    { id: 3, name: "Ragdoll Cat", price: 20, image: cat3 },
+    { id: 4, name: "Himalayan Cat", price: 20, image: cat4 },
+    { id: 5, name: "American Bob Cat", price: 20, image: cat5 },
+    { id: 6, name: "Bombay Cat", price: 20, image: cat6 },
+    { id: 7, name: "Siberian Cat", price: 20, image: cat7 },
+    { id: 8, name: "Australian Mist Cat", price: 20, image: cat8 },
+    { id: 9, name: "Burmilla Cat", price: 20, image: cat9 },
+    { id: 10, name: "British Long Hair Cat", price: 20, image: cat10 },
+];
 
-    // State to store cat quantities
+export default function Cat() {
+    const [userInput, setUserInput] = useState("");
+    
+    // State for storing cat quantities
     const [catCounts, setCatCounts] = useState(
         catData.reduce((acc, cat) => {
             acc[cat.id] = { male: 0, female: 0 };
@@ -45,46 +46,63 @@ export default function Cat({ searchQuery }) {
         }));
     };
 
-    const filteredCats = catData.filter(cat =>
-        searchQuery === "" || cat.name.toLowerCase().includes(searchQuery)
+    // Filter the data based on user input
+    const filteredData = catData.filter((cat) =>
+        cat.name.toLowerCase().includes(userInput.toLowerCase())
     );
 
     return (
         <div>
-            {filteredCats.length > 0 ? (
-                filteredCats.map(cat => {
-                    const totalPrice = cat.price * (catCounts[cat.id].male + catCounts[cat.id].female);
-                    return (
-                        <div className="gallery" key={cat.id}>
-                            <div>
-                                <img src={cat.image} alt={cat.name} />
+            <input
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                type="text"
+                placeholder="Search pets"
+            />
+            <div>
+                {filteredData.length > 0 ? (
+                    filteredData.map((cat) => {
+                        const totalPrice =
+                            cat.price * (catCounts[cat.id].male + catCounts[cat.id].female);
+                        return (
+                            <div className="gallery" key={cat.id}>
+                                <div>
+                                    <img src={cat.image} alt={cat.name} />
+                                </div>
+                                <div className="desc">{cat.name} (${cat.price})</div>
+                                <div className="desc">Total: ${totalPrice}</div>
+                                <div className="desc">
+                                    <span style={{ marginRight: "20px" }}>
+                                        M
+                                        <button onClick={() => updateCount(cat.id, "male", -1)}>
+                                            -
+                                        </button>
+                                        {catCounts[cat.id].male}
+                                        <button onClick={() => updateCount(cat.id, "male", 1)}>
+                                            +
+                                        </button>
+                                    </span>
+                                    <span>
+                                        F
+                                        <button onClick={() => updateCount(cat.id, "female", -1)}>
+                                            -
+                                        </button>
+                                        {catCounts[cat.id].female}
+                                        <button onClick={() => updateCount(cat.id, "female", 1)}>
+                                            +
+                                        </button>
+                                    </span>
+                                </div>
+                                <div className="desc">
+                                    <button>Add to cart</button>
+                                </div>
                             </div>
-                            <div className="desc">{cat.name} (${cat.price})</div>
-                            <div className="desc">Total: ${totalPrice}</div>
-                            <div className="desc">
-                                <span style={{ marginRight: "20px" }}>
-                                    M
-                                    <button onClick={() => updateCount(cat.id, "male", -1)}>-</button>
-                                    {catCounts[cat.id].male}
-                                    <button onClick={() => updateCount(cat.id, "male", 1)}>+</button>
-                                </span>
-                                <span>
-                                    F
-                                    <button onClick={() => updateCount(cat.id, "female", -1)}>-</button>
-                                    {catCounts[cat.id].female}
-                                    <button onClick={() => updateCount(cat.id, "female", 1)}>+</button>
-                                </span>
-                            </div>
-                            <div className="desc">
-                                <button>Add to cart</button>
-                            </div>
-                        </div>
-                    );
-                })
-            ) : (
-                <p>No matching cats found.</p> // Show message if no cats match search
-            )}
-
+                        );
+                    })
+                ) : (
+                    <p>No results found</p>
+                )}
+            </div>
         </div>
     );
 }

@@ -14,7 +14,6 @@ import Random from "./Random";
 
 
 function Layout() {
-    const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
@@ -27,9 +26,7 @@ function Layout() {
         navigate("/Login"); // Redirect to login
     };
 
-    const handleSearchChange = (event) => {
-        setSearchQuery(event.target.value.toLowerCase());
-    };
+
 
     // Update auth state when token changes
     useEffect(() => {
@@ -73,12 +70,7 @@ function Layout() {
 
             {!hideSearchAndCategories && (
                 <div>
-                    <input
-                        type="search"
-                        placeholder="Search .."
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                    />
+                    
 
                     <div className="dropdown">
                         <button className="dropbtn">Categories</button>
@@ -101,7 +93,7 @@ function Layout() {
                 <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/Cart" element={isAuthenticated ? <Cart /> : <Login />} />
-                <Route path="/Cat" element={<Cat searchQuery={searchQuery} />} />
+                <Route path="/Cat" element={<Cat />} />
                 <Route path="/Rabbit" element={<Rabbit />} />
                 <Route path="/Guinea" element={<Guinea />} />
                 <Route path="/Chinchilla" element={<Chinchilla />} />
