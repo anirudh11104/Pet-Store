@@ -8,13 +8,13 @@ import Chinchilla6 from "./Images/Chinchillas/Chinchilla6.jpg";
 import Chinchilla7 from "./Images/Chinchillas/Chinchilla7.jpg";
 
 export const ChinchillaData = [
-    { id: 1, name: "Gray Chinchilla", price: 10, image: Chinchilla1 },
-    { id: 2, name: "White Chinchilla", price: 10, image: Chinchilla2 },
-    { id: 3, name: "Ebony Chinchilla", price: 10, image: Chinchilla3 },
-    { id: 4, name: "Beige Chinchilla", price: 10, image: Chinchilla4 },
-    { id: 5, name: "Mosaic Chinchilla", price: 10, image: Chinchilla5 },
-    { id: 6, name: "Gold Bar", price: 10, image: Chinchilla6 },
-    { id: 7, name: "Angora Chinchilla", price: 10, image: Chinchilla7 },
+    { id: 1, name: "Gray Chinchilla", price: 10, image: Chinchilla1, type: "Chinchilla" },
+    { id: 2, name: "White Chinchilla", price: 10, image: Chinchilla2, type: "Chinchilla" },
+    { id: 3, name: "Ebony Chinchilla", price: 10, image: Chinchilla3, type: "Chinchilla" },
+    { id: 4, name: "Beige Chinchilla", price: 10, image: Chinchilla4, type: "Chinchilla" },
+    { id: 5, name: "Mosaic Chinchilla", price: 10, image: Chinchilla5, type: "Chinchilla" },
+    { id: 6, name: "Gold Bar", price: 10, image: Chinchilla6, type: "Chinchilla" },
+    { id: 7, name: "Angora Chinchilla", price: 10, image: Chinchilla7, type: "Chinchilla" },
 ];
 
 export default function Chinchilla({ addToCart }) {

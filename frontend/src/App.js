@@ -17,17 +17,22 @@ function Layout() {
     const [cart, setCart] = useState([]); // Store added cats
 
 
-    const addToCart = (cat, maleCount, femaleCount) => {
+    const addToCart = (pet, maleCount, femaleCount) => {
         setCart(prevCart => {
-            const existingCat = prevCart.find(item => item.id === cat.id);
-            if (existingCat) {
-                return prevCart.map(item =>
-                    item.id === cat.id
-                        ? { ...item, male: maleCount, female: femaleCount }
-                        : item
-                );
+            const existingPetIndex = prevCart.findIndex(item => item.id === pet.id && item.type === pet.type);
+
+            if (existingPetIndex !== -1) {
+                // Update existing pet quantity
+                const updatedCart = [...prevCart];
+                updatedCart[existingPetIndex] = {
+                    ...updatedCart[existingPetIndex],
+                    male: updatedCart[existingPetIndex].male + maleCount,
+                    female: updatedCart[existingPetIndex].female + femaleCount,
+                };
+                return updatedCart;
             } else {
-                return [...prevCart, { ...cat, male: maleCount, female: femaleCount }];
+                // Add new pet to cart
+                return [...prevCart, { ...pet, male: maleCount, female: femaleCount, type: pet.type }];
             }
         });
     };

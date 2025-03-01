@@ -4,9 +4,9 @@ import guineapig2 from "./Images/Guinea Pigs/guineapig2.webp";
 import guineapig3 from "./Images/Guinea Pigs/guineapig3.webp";
 
 export const guineapigData = [
-    { id: 1, name: "American Guinea", price: 10, image: guineapig1 },
-    { id: 2, name: "White Crested", price: 10, image: guineapig2 },
-    { id: 3, name: "Brazilian", price: 50, image: guineapig3 },
+    { id: 1, name: "American Guinea", price: 10, image: guineapig1, type: "Guinea" },
+    { id: 2, name: "White Crested", price: 10, image: guineapig2, type: "Guinea" },
+    { id: 3, name: "Brazilian", price: 50, image: guineapig3, type: "Guinea" },
 ];
 
 export default function Guineapig({ addToCart }) {

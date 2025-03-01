@@ -12,16 +12,16 @@ import cat10 from "./Images/Cats/cat10.jpg";
 import "./App.css";
 
 export const catData = [
-    { id: 1, name: "Ginger Cat", price: 10, image: cat1 },
-    { id: 2, name: "Persian Cat", price: 20, image: cat2 },
-    { id: 3, name: "Ragdoll Cat", price: 20, image: cat3 },
-    { id: 4, name: "Himalayan Cat", price: 20, image: cat4 },
-    { id: 5, name: "American Bob Cat", price: 20, image: cat5 },
-    { id: 6, name: "Bombay Cat", price: 20, image: cat6 },
-    { id: 7, name: "Siberian Cat", price: 20, image: cat7 },
-    { id: 8, name: "Australian Mist Cat", price: 20, image: cat8 },
-    { id: 9, name: "Burmilla Cat", price: 20, image: cat9 },
-    { id: 10, name: "Long Hair Cat", price: 20, image: cat10 },
+    { id: 1, name: "Ginger Cat", price: 10, image: cat1, type: "cat" },
+    { id: 2, name: "Persian Cat", price: 20, image: cat2, type: "cat" },
+    { id: 3, name: "Ragdoll Cat", price: 20, image: cat3, type: "cat" },
+    { id: 4, name: "Himalayan Cat", price: 20, image: cat4, type: "cat" },
+    { id: 5, name: "American Bob Cat", price: 20, image: cat5, type: "cat" },
+    { id: 6, name: "Bombay Cat", price: 20, image: cat6, type: "cat" },
+    { id: 7, name: "Siberian Cat", price: 20, image: cat7, type: "cat" },
+    { id: 8, name: "Australian Mist Cat", price: 20, image: cat8, type: "cat" },
+    { id: 9, name: "Burmilla Cat", price: 20, image: cat9, type: "cat" },
+    { id: 10, name: "Long Hair Cat", price: 20, image: cat10, type: "cat" },
 ];
 
 export default function Cat({ addToCart }) {

@@ -6,11 +6,11 @@ import Hamster4 from "./Images/Hamsters/Hamster4.webp";
 import Hamster5 from "./Images/Hamsters/Hamster5.webp";
 
 export const HamsterData = [
-    { id: 1, name: "Dwarf Roborovski", price: 10, image: Hamster1 },
-    { id: 2, name: "Campbell's Dwarf", price: 10, image: Hamster2 },
-    { id: 3, name: "Syrian Hamster", price: 50, image: Hamster3 },
-    { id: 4, name: "Dwarf Winter", price: 10, image: Hamster4 },
-    { id: 5, name: "Chinese Hamster", price: 5, image: Hamster5 },
+    { id: 1, name: "Dwarf Roborovski", price: 10, image: Hamster1, type: "Hamster" },
+    { id: 2, name: "Campbell's Dwarf", price: 10, image: Hamster2, type: "Hamster" },
+    { id: 3, name: "Syrian Hamster", price: 50, image: Hamster3, type: "Hamster" },
+    { id: 4, name: "Dwarf Winter", price: 10, image: Hamster4, type: "Hamster" },
+    { id: 5, name: "Chinese Hamster", price: 5, image: Hamster5, type: "Hamster" },
 ];
 
 export default function Hamster({ addToCart }) {
