@@ -21,7 +21,7 @@ export const catData = [
     { id: 7, name: "Siberian Cat", price: 20, image: cat7 },
     { id: 8, name: "Australian Mist Cat", price: 20, image: cat8 },
     { id: 9, name: "Burmilla Cat", price: 20, image: cat9 },
-    { id: 10, name: "British Long Hair Cat", price: 20, image: cat10 },
+    { id: 10, name: "Long Hair Cat", price: 20, image: cat10 },
 ];
 
 export default function Cat({ addToCart }) {
@@ -72,6 +72,7 @@ export default function Cat({ addToCart }) {
                                 <div className="desc">{cat.name} (${cat.price})</div>
                                 <div className="desc">Total: ${totalPrice}</div>
                                 <div className="desc">
+                                    <div className="quantity-controls">
                                     <span style={{ marginRight: "20px" }}>
                                         M
                                         <button onClick={() => updateCount(cat.id, "male", -1)}>
@@ -92,10 +93,11 @@ export default function Cat({ addToCart }) {
                                             +
                                         </button>
                                     </span>
+                                    </div>
                                 </div>
                                 <div className="desc">
                                     {catCounts[cat.id].male !== 0 || catCounts[cat.id].female !== 0 ? (
-                                        <button onClick={() => addToCart(cat, catCounts[cat.id].male, catCounts[cat.id].female)}>
+                                        <button className="add-to-cart-btn" onClick={() => addToCart(cat, catCounts[cat.id].male, catCounts[cat.id].female)}>
                                             Add to cart
                                         </button>
                                     ) : (

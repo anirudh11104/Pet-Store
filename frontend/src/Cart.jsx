@@ -1,26 +1,32 @@
+import ApplePay from "./ApplePay";
 import GooglePayButton from "./GooglePayButton";
 
 export default function Cart({ cart }) {
-    const totalAmount = cart.reduce((sum, cat) => sum + cat.price * (cat.male + cat.female), 0);
+    const totalAmount = cart.reduce((sum, pet) => sum + pet.price * (pet.male + pet.female), 0);
 
     return (
-        <div>
+        <div className="cart-container">
             <h2>Shopping Cart</h2>
             {cart.length === 0 ? <p>No items in cart</p> : null}
-            {cart.map(cat => (
-                <div className="cart-item" key={cat.id}>
-                    <img src={cat.image} alt={cat.name} style={{ width: "100px" }} />
+            
+            {cart.map(pet => (
+                <div className="cart-item" key={pet.id}>
+                    <img src={pet.image} alt={pet.name} />
                     <div className="desc">
-                        <strong>{cat.name}</strong>
-                        <p>Male: {cat.male}, Female: {cat.female}</p>
-                        <p>Cost: ${cat.price * (cat.male + cat.female)}</p>
+                        <strong>{pet.name}</strong>
+                        <p>Male: {pet.male}, Female: {pet.female}</p>
+                        <p>Cost: ${pet.price * (pet.male + pet.female)}</p>
                     </div>
                 </div>
             ))}
+
             {totalAmount > 0 && (
-                <div>
+                <div className="total-section">
                     <h3>Total: ${totalAmount.toFixed(2)}</h3>
-                    <GooglePayButton totalAmount={totalAmount} />
+                    <div className="payment-buttons">
+                        <GooglePayButton totalAmount={totalAmount} />
+                        <ApplePay />
+                    </div>
                 </div>
             )}
         </div>

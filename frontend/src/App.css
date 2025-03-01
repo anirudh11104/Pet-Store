@@ -4,19 +4,41 @@ a {
 
 header {
   text-align: right;
-  background-color: #eee;
+  
+  background-color: #ffc1cc; 
+  padding: 15px;
+}
+
+header a {
+  color: #000;            /* White text */
+  text-decoration: none;   /* Remove underline */
+  padding: 15px 30px;      /* Add spacing */
+  margin: 0 10px;
+  border-radius: 0px;      /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth effect */
+}
+
+header a:hover {
+  background-color: #fee; /* Change background color on hover */
+}
+
+body {
+  background-color: #f9f9f9; /* Path to your image */
+  background-size: cover; /* Ensures the image covers the whole screen */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  height: 100vh; /* Full viewport height */
 }
 
 .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
+  padding: 6px;
   font-size: 16px;
-  border: none;
   cursor: pointer;
 }
 
 .dropdown {
+  padding-top: 5px;
+  padding-bottom: 3px;
   position: relative;
   display: inline-block;
 }
@@ -44,10 +66,11 @@ header {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #fee;
 }
 
 div.gallery {
+  background-color: #fee;
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
@@ -76,4 +99,358 @@ div.desc {
   gap: 20px;
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
+}
+
+/* Center the form */
+.signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffc1cc; /* Light pink background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Form title */
+.signup-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+
+
+/* Style the form inputs */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.signup-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style the button */
+.signup-form button {
+  padding: 10px;
+  background-color: #ff6699; /* Pink button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #ff3366; /* Darker pink */
+}
+
+/* Login link */
+.signup-container p {
+  margin-top: 10px;
+}
+
+.signup-container a {
+  color: #ff3366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-container a:hover {
+  text-decoration: underline;
+}
+
+/* Center the form */
+.login-container {
+  max-width: 400px;
+  margin: 50px 50px;
+  padding: 20px;
+  background-color: #ffc1cc; /* Light pink background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Form title */
+.login-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Style the form inputs */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style the button */
+.login-form button {
+  padding: 10px;
+  background-color: #ff6699; /* Pink button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #ff3366; /* Darker pink */
+}
+
+/* Signup link */
+.login-container p {
+  margin-top: 10px;
+}
+
+.login-container a {
+  color: #ff3366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+/* Center the contact details */
+.contact-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffc1cc; /* Light pink background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Contact title */
+.contact-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Contact details */
+.contact-container p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Address styling */
+.contact-container address {
+  font-size: 18px;
+  font-style: normal;
+  margin-top: 5px;
+  line-height: 1.6;
+}
+
+/* Email link */
+.contact-container a {
+  color: #ff3366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-container a:hover {
+  text-decoration: underline;
+}
+
+/* Search Bar */
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin: 15px;
+  border: 2px solid #ff6699;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+input[type="text"]:focus {
+  border-color: #ff3366;
+}
+
+/* Quantity Selector (Plus and Minus Buttons) */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;  /* Add spacing between male and female sections */
+  justify-content: center;
+}
+
+.quantity-controls span {
+  display: flex;
+  align-items: center;
+  gap: 5px;  /* Space between button and number */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Plus (+) and Minus (-) Buttons */
+.quantity-controls button {
+  background-color: #ff6699;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.quantity-controls button:hover {
+  background-color: #ff3366;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background-color: #ff6699;
+  color: white;
+  padding: 2px 3px; /* Adjust padding slightly */
+  font-size: 14px; /* Keep the font size same as before */
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto; /* Allow button width to adjust based on text */
+  min-width: 120px; /* Ensures it doesn't shrink too much */
+  text-align: center;
+  margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #ff3366;
+}
+
+
+/* Gallery Container */
+.gallery {
+  background-color: #fee;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery:hover {
+  border: 1px solid #777;
+}
+
+.gallery img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Description */
+.desc {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fee;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.cart-container h2 {
+  color: #ff6699;
+  margin-bottom: 15px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item .desc {
+  flex: 1;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.cart-item strong {
+  color: #ff3366;
+  font-size: 18px;
+}
+
+.cart-item p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.total-section {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3366;
+}
+
+.payment-buttons {
+  margin-top: 15px;
+}
+
+.payment-buttons button {
+  background-color: #ff6699;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+.payment-buttons button:hover {
+  background-color: #ff3366;
 }

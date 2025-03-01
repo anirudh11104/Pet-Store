@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./App.css"; // Import CSS file for styling
 
 export default function Login({ setIsAuthenticated }) {
     const [email, setEmail] = useState("");
@@ -19,17 +20,24 @@ export default function Login({ setIsAuthenticated }) {
             alert("Login successful!");
             navigate("/"); // Redirect to home
         } catch (error) {
-            alert(error.response.data.error || "Login failed!");
+            alert(error.response?.data?.error || "Login failed!");
         }
     };
 
     return (
-        <div>
-            Login to access your cart.<br />
-            Email: <input type="email" onChange={(e) => setEmail(e.target.value)} required /> <br />
-            Password: <input type="password" onChange={(e) => setPassword(e.target.value)} required /> <br />
-            <button onClick={handleLogin}>Login</button>
+        <div className="login-container">
+            <h2>Login</h2>
+            <p>Login to access your cart.</p>
+            <form className="login-form">
+                <label>Email:</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+                <label>Password:</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+
+                <button type="button" onClick={handleLogin}>Login</button>
+            </form>
+            <p>Don't have an account? <a href="/Sign">Sign Up</a></p>
         </div>
     );
 }
-

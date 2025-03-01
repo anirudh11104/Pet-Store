@@ -16,6 +16,7 @@ import Random from "./Random";
 function Layout() {
     const [cart, setCart] = useState([]); // Store added cats
 
+
     const addToCart = (cat, maleCount, femaleCount) => {
         setCart(prevCart => {
             const existingCat = prevCart.find(item => item.id === cat.id);
@@ -110,10 +111,10 @@ function Layout() {
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/Cat" element={<Cat addToCart={addToCart} />} />
                 <Route path="/Cart" element={<Cart cart={cart} />} />
-                <Route path="/Rabbit" element={<Rabbit />} />
-                <Route path="/Guinea" element={<Guinea />} />
-                <Route path="/Chinchilla" element={<Chinchilla />} />
-                <Route path="/Hamster" element={<Hamster />} />
+                <Route path="/Rabbit" element={<Rabbit addToCart={addToCart}/>} />
+                <Route path="/Guinea" element={<Guinea addToCart={addToCart}/>} />
+                <Route path="/Chinchilla" element={<Chinchilla addToCart={addToCart}/>} />
+                <Route path="/Hamster" element={<Hamster addToCart={addToCart}/>} />
             </Routes>
         </div>
     );
