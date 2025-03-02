@@ -129,7 +129,6 @@ div.desc {
 .signup-form label {
   text-align: left;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .signup-form input {
@@ -170,9 +169,10 @@ div.desc {
 }
 
 /* Center the form */
+/* Center the form */
 .login-container {
   max-width: 400px;
-  margin: 50px 50px;
+  margin: 50px auto;
   padding: 20px;
   background-color: #ffc1cc; /* Light pink background */
   border-radius: 10px;
@@ -234,6 +234,7 @@ div.desc {
 .login-container a:hover {
   text-decoration: underline;
 }
+
 
 /* Center the contact details */
 .contact-container {
